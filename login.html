@@ -11,8 +11,8 @@
     <link rel="stylesheet" href="stylelogin.css">
 </head>
 <body>
-    
-  
+
+
 <!-- BEGIN # BOOTSNIP INFO -->
 <div class="container">
 	<div class="row">
@@ -32,10 +32,10 @@
 						<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
 					</button>
 				</div>
-                
+
                 <!-- Begin # DIV Form -->
                 <div id="div-forms">
-                
+
                     <!-- Begin # Login Form -->
                     <form id="login-form">
 		                <div class="modal-body">
@@ -62,7 +62,7 @@
 				        </div>
                     </form>
                     <!-- End # Login Form -->
-                    
+
                     <!-- Begin | Lost Password Form -->
                     <form id="lost-form" style="display:none;">
     	    		    <div class="modal-body">
@@ -83,7 +83,7 @@
 		    		    </div>
                     </form>
                     <!-- End | Lost Password Form -->
-                    
+
                     <!-- Begin | Register Form -->
                     <form id="register-form" style="display:none;">
             		    <div class="modal-body">
@@ -105,17 +105,17 @@
 		    		    </div>
                     </form>
                     <!-- End | Register Form -->
-                    
+
                 </div>
                 <!-- End # DIV Form -->
-                
+
 			</div>
 		</div>
 	</div>
     <!-- END # MODAL LOGIN -->
-      
 
-      
+
+
     <script
   src="https://code.jquery.com/jquery-3.3.1.min.js"
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
@@ -128,7 +128,7 @@
         $('#login-modal').modal('show');
         $('#register-form').on('submit',function(event){
             event.preventDefault();
-            
+
             data = {
                 username:$('#register_username').val(),
                 password:$('#register_password').val()
@@ -151,7 +151,7 @@
         });
         $('#login-form').on('submit',function(event){
             event.preventDefault();
-            
+
             data = {
                 username:$('#login_username').val(),
                 password:$('#login_password').val()
@@ -170,6 +170,7 @@
                         alert(data.message);
                     }else{
                         Cookies.set('token',data.token);
+                        Cookies.set('username',data.username);
                         window.location.href = 'http://localhost/simplechatclient/';
                     }
                 },
@@ -181,6 +182,6 @@
             });
         });
     </script>
-    
+
 </body>
 </html>

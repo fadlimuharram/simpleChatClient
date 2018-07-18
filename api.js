@@ -1,4 +1,4 @@
-var templateListFriend = '<div class="row sideBar-body">'+
+var templateListFriend = '<div class="row sideBar-body" onclick="onPesanClick()">'+
                   '<div class="col-sm-3 col-xs-3 sideBar-avatar">'+
                     '<div class="avatar-icon">'+
                       '<img src="https://bootdey.com/img/Content/avatar/avatar8.png">'+
@@ -29,11 +29,13 @@ $(document).ready(function(){
         success: function (data){
             tmpHtml='';
             $.each(data,function(key,val){
-                console.log(val.username);
-                tmpHtml += '<div class="row sideBar-body">'+
+                console.log(val);
+                var pesanKlik = "onPesanClick('"+val.username+"','"+val._id+"')";
+                tmpHtml += '<div class="row sideBar-body pesan" onclick="'+pesanKlik+'">'+
                 '<div class="col-sm-3 col-xs-3 sideBar-avatar">'+
                   '<div class="avatar-icon">'+
                     '<img src="https://bootdey.com/img/Content/avatar/avatar8.png">'+
+                    '<input type="hidden" name="id" value="'+val._id+'">'+
                   '</div>'+
                 '</div>'+
                 '<div class="col-sm-9 col-xs-9 sideBar-main">'+
